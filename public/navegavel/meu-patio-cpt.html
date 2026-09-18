@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Manobra X — Meu Pátio</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #EFEEE6;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .frame {
+    width: 865px;
+    height: 568px;
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    display: flex;
+    overflow: hidden;
+  }
+  .app-side {
+    width: 108px;
+    flex-shrink: 0;
+    border-right: 1px solid #E3E3E3;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 12px;
+  }
+  .app-title { font-size: 12px; font-weight: 700; margin-bottom: 14px; }
+  .nav-item { font-size: 9px; padding: 6px; border-radius: 4px; color: #9A9A9A; }
+  .nav-item.active { background: #F2F2F2; color: #1A1A1A; font-weight: 700; }
+  .app-footer { margin-top: auto; font-size: 8px; color: #9A9A9A; border-top: 1px solid #E3E3E3; padding-top: 8px; }
+
+  .main { flex: 1; display: flex; flex-direction: column; padding: 14px 18px; min-width: 0; }
+  .header-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .page-title { font-size: 15px; font-weight: 700; }
+  .select-box {
+    display: flex; align-items: center; gap: 6px;
+    border: 1px solid #D9D9D9; border-radius: 6px;
+    padding: 5px 9px; font-size: 9px;
+  }
+  .spacer { flex: 1; }
+  .btn-primary {
+    background: #161616; color: #FFFFFF; border: none; border-radius: 6px;
+    font-size: 9px; font-weight: 700; padding: 7px 12px; display: flex; align-items: center; gap: 5px;
+  }
+  .icon-btn {
+    width: 24px; height: 24px; border: 1px solid #D9D9D9; border-radius: 5px;
+    display: flex; align-items: center; justify-content: center; font-size: 12px; color: #9A9A9A;
+  }
+
+  .columns { flex: 1; display: flex; gap: 14px; overflow: hidden; }
+  .col {
+    flex: 1; border: 1px solid #E3E3E3; border-radius: 6px; padding: 10px;
+    display: flex; flex-direction: column; overflow-y: auto;
+  }
+  .col-title { font-size: 10px; font-weight: 700; margin-bottom: 8px; }
+  .block-label { font-size: 7.5px; color: #9A9A9A; font-weight: 700; text-transform: uppercase; margin: 6px 0 5px; }
+  .car-row {
+    display: flex; align-items: center; gap: 6px;
+    border: 1px solid #E3E3E3; border-radius: 5px;
+    padding: 4px 6px; margin-bottom: 4px; font-size: 8.5px;
+  }
+  .tag {
+    font-size: 7px; font-weight: 700; border: 1px solid #B5B5B5; border-radius: 3px;
+    padding: 1px 4px; color: #6A6A6A;
+  }
+  .car-code { flex: 1; }
+  .pill {
+    font-size: 6.5px; font-weight: 700; border-radius: 10px; padding: 2px 6px;
+    margin-left: auto;
+  }
+  .pill.avariado { background: #FBE7E7; color: #B33A3A; border: 1px solid #E7B8B8; }
+  .pill.reserva { background: #F3E7DC; color: #8A5A2E; border: 1px solid #DFC3A8; }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="app-side">
+      <div class="app-title">Manobra X</div>
+      <div class="nav-item active">Meu pátio</div>
+      <div class="app-footer">CPT &nbsp; CPT</div>
+    </div>
+
+    <div class="main">
+      <div class="header-row">
+        <div class="page-title">Meu pátio</div>
+        <div class="select-box">EHT <svg width="8" height="8" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#9A9A9A" stroke-width="2" fill="none"/></svg></div>
+        <div class="spacer"></div>
+        <button class="btn-primary">+ Adicionar vagão</button>
+        <div class="icon-btn">···</div>
+      </div>
+
+      <div class="columns">
+        <div class="col">
+          <div class="col-title">L4</div>
+          <div class="block-label">Bloco A</div>
+          <div class="car-row"><span class="tag">LOC</span><span class="car-code">GT46 8185</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 2214377</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 7087641</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFD 6065384</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFD 6436919</span></div>
+          <div class="block-label">Bloco B</div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HAD 6080430</span><span class="pill avariado">AVARIADO</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HAD 6190758</span><span class="pill avariado">AVARIADO</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HAD 6081118</span><span class="pill avariado">AVARIADO</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HFE 2540495</span><span class="pill avariado">AVARIADO</span></div>
+        </div>
+
+        <div class="col">
+          <div class="col-title">L3</div>
+          <div class="block-label">Bloco A</div>
+          <div class="car-row"><span class="tag">LOC</span><span class="car-code">U20 2688</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 2206579</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 2207435</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 0635073</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HAE 0641561</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HAE 0642282</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 0642070</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 0636030</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HFD 2464098</span></div>
+          <div class="block-label">Bloco B</div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 2210371</span><span class="pill reserva">RESERVA</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 0636455</span><span class="pill reserva">RESERVA</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 2207656</span><span class="pill reserva">RESERVA</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 0437524</span><span class="pill reserva">RESERVA</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 0635723</span><span class="pill reserva">RESERVA</span></div>
+        </div>
+
+        <div class="col">
+          <div class="col-title">L Desvio</div>
+          <div class="block-label">Bloco A</div>
+          <div class="car-row"><span class="tag">LOC</span><span class="car-code">G46 8193</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">TCE 0606375</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">PEC 6074723</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HPD 6182674</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">PEF 0562807</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">TCD 7116667</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HAE 0640808</span><span class="pill avariado">AVARIADO</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 0636193</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 0634875</span></div>
+          <div class="block-label">Bloco B</div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HAE 0641847</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HAE 0642118</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 0636711</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 2212447</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">GFE 2219778</span></div>
+        </div>
+
+        <div class="col">
+          <div class="col-title">L Principal</div>
+          <div class="block-label">Bloco A</div>
+          <div class="car-row"><span class="tag">LOC</span><span class="car-code">U20 3904</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HFE 2533707</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HFE 2533693</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HPD 6052207</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HPD 6409130</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HPD 6048145</span></div>
+          <div class="block-label">Bloco B</div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HFE 2541360</span><span class="pill avariado">AVARIADO</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HFE 2541351</span><span class="pill avariado">AVARIADO</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HFE 2540509</span><span class="pill avariado">AVARIADO</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HFE 7053576</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">TSC 6343261</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HFE 6077382</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HFD 6447473</span></div>
+          <div class="car-row"><span class="tag">VG</span><span class="car-code">HFD 6435459</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

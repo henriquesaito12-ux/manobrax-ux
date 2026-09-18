@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Manobra X — Visão Estratégica</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #EFEEE6;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .frame {
+    width: 855px;
+    height: 553px;
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    display: flex;
+    overflow: hidden;
+  }
+  .app-side {
+    width: 108px;
+    flex-shrink: 0;
+    border-right: 1px solid #E3E3E3;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 12px;
+  }
+  .app-title { font-size: 12px; font-weight: 700; margin-bottom: 14px; }
+  .nav-item { font-size: 9px; padding: 6px; border-radius: 4px; color: #9A9A9A; }
+  .nav-item.active { background: #F2F2F2; color: #1A1A1A; font-weight: 700; }
+  .app-footer { margin-top: auto; font-size: 8px; color: #9A9A9A; border-top: 1px solid #E3E3E3; padding-top: 8px; }
+
+  .main { flex: 1; display: flex; flex-direction: column; padding: 16px 20px; min-width: 0; }
+  .header-row { display: flex; align-items: center; margin-bottom: 14px; }
+  .page-title { font-size: 15px; font-weight: 700; }
+  .spacer { flex: 1; }
+  .select-box {
+    display: flex; align-items: center; gap: 6px;
+    border: 1px solid #D9D9D9; border-radius: 6px;
+    padding: 5px 9px; font-size: 8.5px; margin-left: 8px;
+  }
+
+  .kpi-row { display: flex; gap: 12px; margin-bottom: 14px; }
+  .kpi-card { flex: 1; border: 1px solid #E3E3E3; border-radius: 6px; padding: 10px 12px; }
+  .kpi-label { font-size: 7px; color: #9A9A9A; text-transform: uppercase; font-weight: 700; margin-bottom: 5px; }
+  .kpi-value { font-size: 15px; font-weight: 700; }
+
+  .charts-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; }
+  .chart-card { border: 1px solid #E3E3E3; border-radius: 6px; padding: 10px 12px; display: flex; flex-direction: column; overflow: hidden; }
+  .chart-title { font-size: 9.5px; font-weight: 700; }
+  .chart-sub { font-size: 7px; color: #9A9A9A; margin-bottom: 6px; }
+  .chart-body { flex: 1; display: flex; align-items: center; justify-content: center; }
+  .legend-row { display: flex; align-items: center; gap: 5px; font-size: 7px; color: #4A4A4A; margin-top: 4px; }
+  .legend-swatch { width: 7px; height: 7px; border-radius: 2px; }
+
+  .donut-wrap { display: flex; align-items: center; gap: 14px; width: 100%; height: 100%; }
+  .donut-labels { display: flex; flex-direction: column; gap: 6px; font-size: 8px; }
+
+  .bars-x { display: flex; align-items: flex-end; justify-content: space-around; width: 100%; height: 100%; padding: 0 6px; }
+  .bar-group { display: flex; flex-direction: column; align-items: center; }
+  .bar-pair { display: flex; align-items: flex-end; gap: 3px; height: 90px; }
+  .bar { width: 14px; border-radius: 2px 2px 0 0; position: relative; }
+  .bar-val { font-size: 7px; font-weight: 700; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+  .bar.planned { background: #D9D9D9; }
+  .bar.executed { background: #1A1A1A; }
+  .bar-group-label { font-size: 7.5px; color: #2E5AAC; margin-top: 5px; }
+
+  .hbars { width: 100%; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+  .hbar-row { display: flex; align-items: center; gap: 6px; font-size: 7.5px; }
+  .hbar-name { width: 100px; flex-shrink: 0; }
+  .hbar-track { flex: 1; background: #F2F2F2; border-radius: 3px; height: 8px; overflow: hidden; }
+  .hbar-fill { background: #B5B5B5; height: 100%; border-radius: 3px; }
+  .hbar-count { width: 16px; text-align: right; font-weight: 700; }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="app-side">
+      <div class="app-title">Manobra X</div>
+      <div class="nav-item active">Visão Estratégica</div>
+      <div class="app-footer">CPT &nbsp; CPT</div>
+    </div>
+
+    <div class="main">
+      <div class="header-row">
+        <div class="page-title">Visão Estratégica</div>
+        <div class="spacer"></div>
+        <div class="select-box">Todos os pátios <svg width="8" height="8" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#9A9A9A" stroke-width="2" fill="none"/></svg></div>
+        <div class="select-box">Últimos 30 dias <svg width="8" height="8" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#9A9A9A" stroke-width="2" fill="none"/></svg></div>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi-card"><div class="kpi-label">Tempo médio real vs. planejado</div><div class="kpi-value">+22%</div></div>
+        <div class="kpi-card"><div class="kpi-label">Execução conforme o plano</div><div class="kpi-value">78%</div></div>
+        <div class="kpi-card"><div class="kpi-label">Manobras no período</div><div class="kpi-value">146</div></div>
+        <div class="kpi-card"><div class="kpi-label">Principal causa de atraso</div><div class="kpi-value" style="font-size:12px;">Troca de maquinista</div></div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <div class="chart-title">Tendência do tempo médio de manobra</div>
+          <div class="chart-sub">Últimas 6 semanas</div>
+          <div class="chart-body">
+            <svg width="100%" height="90" viewBox="0 0 300 90" preserveAspectRatio="none">
+              <line x1="0" y1="0" x2="300" y2="0" stroke="#F2F2F2"/>
+              <line x1="0" y1="45" x2="300" y2="45" stroke="#F2F2F2"/>
+              <line x1="0" y1="89" x2="300" y2="89" stroke="#F2F2F2"/>
+              <polyline points="10,35 60,32 110,15 160,42 210,30 260,55" fill="none" stroke="#1A1A1A" stroke-width="1.6"/>
+              <circle cx="10" cy="35" r="2.5" fill="#1A1A1A"/>
+              <circle cx="60" cy="32" r="2.5" fill="#1A1A1A"/>
+              <circle cx="110" cy="15" r="2.5" fill="#1A1A1A"/>
+              <circle cx="160" cy="42" r="2.5" fill="#1A1A1A"/>
+              <circle cx="210" cy="30" r="2.5" fill="#1A1A1A"/>
+              <circle cx="260" cy="55" r="2.5" fill="#1A1A1A"/>
+              <text x="10" y="88" font-size="7" fill="#9A9A9A">S1</text>
+              <text x="60" y="88" font-size="7" fill="#9A9A9A">S2</text>
+              <text x="108" y="88" font-size="7" fill="#9A9A9A">S3</text>
+              <text x="158" y="88" font-size="7" fill="#9A9A9A">S4</text>
+              <text x="208" y="88" font-size="7" fill="#9A9A9A">S5</text>
+              <text x="258" y="88" font-size="7" fill="#9A9A9A">S6</text>
+            </svg>
+          </div>
+          <div class="legend-row"><span class="legend-swatch" style="background:#1A1A1A"></span>Tempo médio (min)</div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-title">Composição do tempo total</div>
+          <div class="chart-sub">Manobra do trem vs. setup do pátio</div>
+          <div class="chart-body">
+            <div class="donut-wrap">
+              <svg width="90" height="90" viewBox="0 0 42 42">
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="#F2F2F2" stroke-width="6"></circle>
+                <circle cx="21" cy="21" r="15.9" fill="none" stroke="#1A1A1A" stroke-width="6"
+                  stroke-dasharray="65 35" stroke-dashoffset="25"></circle>
+                <text x="21" y="20" text-anchor="middle" font-size="6.5" font-weight="700" fill="#1A1A1A">65%</text>
+                <text x="21" y="27" text-anchor="middle" font-size="4.5" fill="#9A9A9A">MANOBRA</text>
+              </svg>
+              <div class="donut-labels">
+                <div class="legend-row"><span class="legend-swatch" style="background:#1A1A1A"></span>Manobra do trem — 65%</div>
+                <div class="legend-row"><span class="legend-swatch" style="background:#D9D9D9"></span>Setup do pátio — 35%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-title">Tempo planejado x executado por pátio</div>
+          <div class="chart-sub">Média em minutos</div>
+          <div class="chart-body">
+            <div class="bars-x">
+              <div class="bar-group">
+                <div class="bar-pair">
+                  <div class="bar planned" style="height:73px;"><span class="bar-val">40</span></div>
+                  <div class="bar executed" style="height:89px;"><span class="bar-val">49</span></div>
+                </div>
+                <div class="bar-group-label">EHT</div>
+              </div>
+              <div class="bar-group">
+                <div class="bar-pair">
+                  <div class="bar planned" style="height:76px;"><span class="bar-val">42</span></div>
+                  <div class="bar executed" style="height:80px;"><span class="bar-val">44</span></div>
+                </div>
+                <div class="bar-group-label">Paulínia</div>
+              </div>
+              <div class="bar-group">
+                <div class="bar-pair">
+                  <div class="bar planned" style="height:69px;"><span class="bar-val">38</span></div>
+                  <div class="bar executed" style="height:83px;"><span class="bar-val">46</span></div>
+                </div>
+                <div class="bar-group-label">Divinópolis</div>
+              </div>
+            </div>
+          </div>
+          <div class="legend-row"><span class="legend-swatch" style="background:#D9D9D9"></span>Planejado &nbsp;<span class="legend-swatch" style="background:#1A1A1A"></span>Executado</div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-title">Causas de atraso mais frequentes</div>
+          <div class="chart-sub">Nº de ocorrências no período</div>
+          <div class="chart-body">
+            <div class="hbars">
+              <div class="hbar-row"><span class="hbar-name">Troca de maquinista</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="hbar-count">38</span></div>
+              <div class="hbar-row"><span class="hbar-name">Bloqueio de via</span><div class="hbar-track"><div class="hbar-fill" style="width:63%"></div></div><span class="hbar-count">24</span></div>
+              <div class="hbar-row"><span class="hbar-name">Falha de integração Unilog</span><div class="hbar-track"><div class="hbar-fill" style="width:39%"></div></div><span class="hbar-count">15</span></div>
+              <div class="hbar-row"><span class="hbar-name">Reparo de vagão</span><div class="hbar-track"><div class="hbar-fill" style="width:24%"></div></div><span class="hbar-count">9</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  /* Superfícies */
+  --color-bg: #efeee6;
+  --color-surface: #e7e4d8;
+  --color-border: #dbd7c8;
+  --color-row-hover: #e5e3d8;
+  --color-card: #f7f6f0;
+  --color-legacy: #e5e3d8;
+
+  /* Texto */
+  --color-ink: #1f1912;
+  --color-secondary: #6b6a63;
+  --color-muted: #8a8980;
+
+  /* Marca */
+  --color-brand-green: #35d62b;
+  --color-brand-green-bg: #e2f9df;
+
+  /* Categorias de ação */
+  --color-human: #1f1912;
+  --color-human-bg: #e6e3d7;
+  --color-amber: #b8862e;
+  --color-amber-bg: #f7eedb;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Esconde as setas de navegação de slide enquanto o Lightbox (imagem em tela
+   cheia) estiver aberto. */
+body.lightbox-open .nav-arrows {
+  display: none;
+}
+
+/* Trava o embed do draw.io no tamanho real do container (flex-1) — sem isso
+   o GraphViewer define uma altura inline própria, maior que o espaço
+   disponível, e o overlay acaba vazando pra fora da viewport (aparecendo
+   como a barra de rolagem nativa da página). */
+.mxgraph {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/* Scrollbar minimalista pro embed do draw.io — sem faixa branca nem setas. */
+.mxgraph,
+.mxgraph * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.mxgraph::-webkit-scrollbar,
+.mxgraph *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.mxgraph::-webkit-scrollbar-track,
+.mxgraph *::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mxgraph::-webkit-scrollbar-thumb,
+.mxgraph *::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 8px;
+}
+
+.mxgraph::-webkit-scrollbar-button,
+.mxgraph *::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.mxgraph::-webkit-scrollbar-corner,
+.mxgraph *::-webkit-scrollbar-corner {
+  background: transparent;
+}

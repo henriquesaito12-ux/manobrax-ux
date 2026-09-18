@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manobra X — Protótipo</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+  // Acesso direto a esta página (fora do iframe da apresentação) exige ter
+  // passado pelo gate de senha antes — mesma chave de sessionStorage usada lá.
+  try {
+    if (sessionStorage.getItem('manobrax-auth') !== 'true') {
+      location.replace('../');
+    }
+  } catch (e) {}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="app.js"></script>
+</body>
+</html>
